@@ -12,7 +12,7 @@ function AddFlight() {
     priceBusiness: '',
     date: new Date(), // Initialize with the current date
   });
-
+  const [message, setMessage] = useState('');
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -42,6 +42,7 @@ function AddFlight() {
       const data = await response.json();
 
       if (response.ok) {
+        setMessage(data.message);
         console.log(data.message);
         // You may redirect or show a success message
       } else {
@@ -55,6 +56,7 @@ function AddFlight() {
   return (
     <div>
       <h1>Add New Flight</h1>
+      {message && <p>{message}</p>}
       <form onSubmit={handleSubmit}>
         <label>
           Name:
