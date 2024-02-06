@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import API_BASE_URL from '../config';
+import './AddFlight.css';
 function AddFlight() {
   const [formData, setFormData] = useState({
     userId: '', // You may get this from your authentication context
@@ -54,7 +55,7 @@ function AddFlight() {
   };
 
   return (
-    <div>
+    <div className="add-flight-container">
       <h1>Add New Flight</h1>
       {message && <p>{message}</p>}
       <form onSubmit={handleSubmit}>
